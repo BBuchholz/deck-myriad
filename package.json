@@ -1,0 +1,11 @@
+{
+  "name": "deck-myriad",
+  "version": "0.0.1",
+  "description": "deck handling for the myriad ecosystem",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "author": "Brent Buchholz",
+  "license": "MIT"
+}

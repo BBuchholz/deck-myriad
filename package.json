@@ -4,8 +4,12 @@
   "description": "deck handling for the myriad ecosystem",
   "main": "index.js",
   "scripts": {
-    "test": "npm test"
+    "test": "jest --watch"
   },
   "author": "Brent Buchholz",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@entomdt/myriad-core": "^0.0.7",
+    "jest": "^27.0.6"
+  }
 }

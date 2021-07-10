@@ -7,7 +7,23 @@ const Card = (key, name) => {
 		imgSrc: ""
 	};
 
-	return Object.assign(self);
+	const cardCapabilities = self => ({
+		
+		getCardKey: () => {
+			return "";
+		},
+
+		getCardName: () => {
+			return "";
+		}
+	});
+
+	const newSelf = Object.assign(
+						self, 
+						cardCapabilities(self)
+					);
+
+	return newSelf;
 }
 
 module.exports = Card;

@@ -19,3 +19,11 @@ test('should have a card name', () => {
 	expect(newCard.getCardName()).toBeDefined();
 	expect(newCard.getCardName()).toEqual("Two of Hearts");
 });
+
+test('should have an image source', () => {
+
+	const newCard = Card("2H", "Two of Hearts");
+
+	expect(newCard.getImageSource()).toBeDefined();
+	expect(newCard.getImageSource()).toEqual("");
+});

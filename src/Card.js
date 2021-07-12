@@ -10,10 +10,14 @@ const Card = (key, name) => {
 	const cardCapabilities = self => ({
 		
 		getCardKey: () => {
-			return "";
+			return self.key;
 		},
 
 		getCardName: () => {
+			return self.name;
+		},
+
+		getImageSource: () => {
 			return "";
 		}
 	});

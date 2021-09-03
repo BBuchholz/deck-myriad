@@ -21,11 +21,18 @@ describe('scenarios', () => {
 			[8, '8S', '7S', '4W', '6C']
 		];
 
+	var scenarios = testUtils.getScenarios();			
+
 	test.each(expectedScenarios)(
 		"given scenario index %p, returns four cards, %p, %p, %p, and %p",
 		(scenarioIndex, daemonCard, playerCardOne, playerCardTwo, playerCardThree) => {
 
-			testUtils.getScenarios();			
+			var scenario = scenarios[scenarioIndex];
+			expect(scenario.daemonCard.power).toBe(daemonCard);
+			expect(scenario.playerCards[0].power).toBe(playerCardOne);
+			expect(scenario.playerCards[1].power).toBe(playerCardTwo);
+			expect(scenario.playerCards[2].power).toBe(playerCardThree);
+
 		}
 	);
 });

@@ -1,12 +1,25 @@
 const DeckUtils = () => {
 
   const self = {
-    
+    useHardCodedScenarios: false,
   };
 
   const deckCapabilities = self => ({
     
     getScenarios: () => {
+
+      if(self.useHardCodedScenarios){
+        return self.getHardCodedScenarios();
+      }else{
+        return self.getDynamicScenarios();
+      }
+    },
+
+    getDynamicScenarios: () => {
+
+    },
+
+    getHardCodedScenarios: () => {
 
       // You can add new scenarios, but make sure that there is exactly...
       // * 1 daemonCard per scenario

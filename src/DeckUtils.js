@@ -1,7 +1,7 @@
 const DeckUtils = () => {
 
   const self = {
-    useHardCodedScenarios: false,
+    useHardCodedScenarios: true,
   };
 
   const deckCapabilities = self => ({
@@ -17,6 +17,12 @@ const DeckUtils = () => {
 
     getDynamicScenarios: () => {
 
+
+    },
+
+    cardToDescription: (cardValue) => {
+
+      return '';
     },
 
     getHardCodedScenarios: () => {
@@ -103,6 +109,106 @@ const DeckUtils = () => {
             {
               description : "Two of Disks",
               power : "2D",
+            }
+          ]
+        },
+        {
+          daemonCard : {
+            description : "Five of Cups",
+            power : "7D",
+          },
+          playerCards : [
+            {
+              description : "Eight of Disks",
+              power : "5D",
+            },
+            {
+              description : "Three of Swords",
+              power : "3W",
+            },
+            {
+              description : "Two of Disks",
+              power : "10S",
+            }
+          ]
+        },
+        {
+          daemonCard : {
+            description : "Five of Cups",
+            power : "7W",
+          },
+          playerCards : [
+            {
+              description : "Eight of Disks",
+              power : "8W",
+            },
+            {
+              description : "Three of Swords",
+              power : "6S",
+            },
+            {
+              description : "Two of Disks",
+              power : "9S",
+            }
+          ]
+        },
+        {
+          daemonCard : {
+            description : "Five of Cups",
+            power : "7C",
+          },
+          playerCards : [
+            {
+              description : "Eight of Disks",
+              power : "10D",
+            },
+            {
+              description : "Three of Swords",
+              power : "9W",
+            },
+            {
+              description : "Two of Disks",
+              power : "2C",
+            }
+          ]
+        },
+        {
+          daemonCard : {
+            description : "Five of Cups",
+            power : "10W",
+          },
+          playerCards : [
+            {
+              description : "Eight of Disks",
+              power : "10C",
+            },
+            {
+              description : "Three of Swords",
+              power : "9C",
+            },
+            {
+              description : "Two of Disks",
+              power : "4C",
+            }
+          ]
+        },
+        {
+          daemonCard : {
+            description : "Eight of Swords",
+            power : "8S",
+          },
+          playerCards : [
+            {
+              description : "Seven of Swords",
+              power : "7S",
+            },
+            {
+              description : "Four of Wands",
+              power : "4W",
+            },
+            {
+              description : "Six of Cups",
+              power : "6C",
             }
           ]
         }

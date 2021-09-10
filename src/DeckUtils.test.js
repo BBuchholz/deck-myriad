@@ -29,9 +29,13 @@ describe('scenarios', () => {
 
 			var scenario = scenarios[scenarioIndex];
 			expect(scenario.daemonCard.power).toBe(daemonCard);
+			expect(scenario.daemonCard.description).toBe(testUtils.cardToDescription(scenario.daemonCard.power));
 			expect(scenario.playerCards[0].power).toBe(playerCardOne);
+			expect(scenario.playerCards[0].description).toBe(testUtils.cardToDescription(scenario.playerCards[0].power));
 			expect(scenario.playerCards[1].power).toBe(playerCardTwo);
+			expect(scenario.playerCards[1].description).toBe(testUtils.cardToDescription(scenario.playerCards[1].power));
 			expect(scenario.playerCards[2].power).toBe(playerCardThree);
+			expect(scenario.playerCards[2].description).toBe(testUtils.cardToDescription(scenario.playerCards[2].power));
 
 		}
 	);

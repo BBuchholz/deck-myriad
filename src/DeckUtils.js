@@ -1,7 +1,7 @@
 const DeckUtils = () => {
 
   const self = {
-    useHardCodedScenarios: true,
+    useHardCodedScenarios: false,
   };
 
   const deckCapabilities = self => ({
@@ -15,14 +15,163 @@ const DeckUtils = () => {
       }
     },
 
+    parseSuit: (cardValue) => {
+
+      if(cardValue.endsWith("D")){
+        return "D";
+      }
+
+      if(cardValue.endsWith("C")){
+        return "C";
+      }
+
+      if(cardValue.endsWith("S")){
+        return "S";
+      } 
+
+      if(cardValue.endsWith("W")){
+        return "W";
+      }
+
+      return '?';
+    },
+
+    parseRank: (cardValue, suitKey) => {
+      return parseInt(cardValue.replace(suitKey, ''));
+    },
+
+    suitKeyToName: (suitKey) => {
+
+      var suitName = '?';
+
+      switch(suitKey) {
+        case 'W':
+          suitName = 'Wands';
+          break;
+        case 'S':
+          suitName = 'Swords';
+          break;
+        case 'D':
+          suitName = 'Disks';
+          break;
+        case 'C':
+          suitName = 'Cups';
+          break;
+      }
+
+      return suitName;
+    },
+
+    rankValueToName: (rankValue) => {
+
+      var rankName = '?';
+
+      switch(rankValue) {
+        case 2:
+          rankName = 'Two';
+          break;
+        case 3:
+          rankName = 'Three';
+          break;
+        case 4:
+          rankName = 'Four';
+          break;
+        case 5:
+          rankName = 'Five';
+          break;
+        case 6:
+          rankName = 'Six';
+          break;
+        case 7:
+          rankName = 'Seven';
+          break;
+        case 8:
+          rankName = 'Eight';
+          break;
+        case 9:
+          rankName = 'Nine';
+          break;
+        case 10:
+          rankName = 'Ten';
+          break;
+
+      }
+
+
+      return rankName;
+    },
+
     getDynamicScenarios: () => {
 
+      var scenarios = [];
+      var cardSets = [
+        ['4D', '5W', '3C', '2S'],
+        ['6D', '5S', '3D', '2W'],
+        ['9D', '6W', '8C', '4S'],
+        ['5C', '8D', '3S', '2D'],
+        ['7D', '5D', '3W', '10S'],
+        ['7W', '8W', '6S', '9S'],
+        ['7C', '10D', '9W', '2C'],
+        ['10W', '10C', '9C', '4C'],
+        ['8S', '7S', '4W', '6C']
+      ];
+
+      for(const cardSet of cardSets){
+        scenarios.push(self.createScenario(cardSet));
+      }
+
+      return scenarios;
 
     },
 
     cardToDescription: (cardValue) => {
 
-      return '';
+      const suit = self.parseSuit(cardValue);
+
+      const rank = self.parseRank(cardValue, suit);
+
+      const suitName = self.suitKeyToName(suit);
+      const rankName = self.rankValueToName(rank);
+
+      return rankName + ' of ' + suitName;
+    },
+
+    createScenario: (fourCardKeyArray) => {
+
+      const cardOneKey = fourCardKeyArray[0];
+      const cardOneDescription = self.cardToDescription(cardOneKey);
+
+      const cardTwoKey = fourCardKeyArray[1];
+      const cardTwoDescription = self.cardToDescription(cardTwoKey);
+
+      const cardThreeKey = fourCardKeyArray[2];
+      const cardThreeDescription = self.cardToDescription(cardThreeKey);
+
+      const cardFourKey = fourCardKeyArray[3];
+      const cardFourDescription = self.cardToDescription(cardFourKey);
+
+      var scenario = {
+        daemonCard: {
+          description: cardOneDescription,
+          power: cardOneKey,
+        },
+        playerCards: [
+          {
+            description: cardTwoDescription,
+            power: cardTwoKey,
+          },
+          {
+            description: cardThreeDescription,
+            power: cardThreeKey,
+          },
+          {
+            description: cardFourDescription,
+            power: cardFourKey,
+          },
+        ]
+      }
+
+      return scenario;
     },
 
     getHardCodedScenarios: () => {
@@ -114,80 +263,80 @@ const DeckUtils = () => {
         },
         {
           daemonCard : {
-            description : "Five of Cups",
+            description : "Seven of Disks",
             power : "7D",
           },
           playerCards : [
             {
-              description : "Eight of Disks",
+              description : "Five of Disks",
               power : "5D",
             },
             {
-              description : "Three of Swords",
+              description : "Three of Wands",
               power : "3W",
             },
             {
-              description : "Two of Disks",
+              description : "Ten of Swords",
               power : "10S",
             }
           ]
         },
         {
           daemonCard : {
-            description : "Five of Cups",
+            description : "Seven of Wands",
             power : "7W",
           },
           playerCards : [
             {
-              description : "Eight of Disks",
+              description : "Eight of Wands",
               power : "8W",
             },
             {
-              description : "Three of Swords",
+              description : "Six of Swords",
               power : "6S",
             },
             {
-              description : "Two of Disks",
+              description : "Nine of Swords",
               power : "9S",
             }
           ]
         },
         {
           daemonCard : {
-            description : "Five of Cups",
+            description : "Seven of Cups",
             power : "7C",
           },
           playerCards : [
             {
-              description : "Eight of Disks",
+              description : "Ten of Disks",
               power : "10D",
             },
             {
-              description : "Three of Swords",
+              description : "Nine of Wands",
               power : "9W",
             },
             {
-              description : "Two of Disks",
+              description : "Two of Cups",
               power : "2C",
             }
           ]
         },
         {
           daemonCard : {
-            description : "Five of Cups",
+            description : "Ten of Wands",
             power : "10W",
           },
           playerCards : [
             {
-              description : "Eight of Disks",
+              description : "Ten of Cups",
               power : "10C",
             },
             {
-              description : "Three of Swords",
+              description : "Nine of Cups",
               power : "9C",
             },
             {
-              description : "Two of Disks",
+              description : "Four of Cups",
               power : "4C",
             }
           ]

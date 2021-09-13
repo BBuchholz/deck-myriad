@@ -116,6 +116,13 @@ const DeckUtils = () => {
         ['8S', '7S', '4W', '6C']
       ];
 
+      //TODO: working on deal function, then should mod these to 
+      // be truly dynamic (shuffled), will have to change tests
+      // to take hardCoded switch as a parameter or something,
+      // original tests were to verify completeness of coverage
+
+      // try to write NEW tests instead of changing OLD ones
+
       for(const cardSet of cardSets){
         scenarios.push(self.createScenario(cardSet));
       }

@@ -6,6 +6,19 @@ it('should have at least one test', () => {
 	expect(true).toBe(true);
 });
 
+describe('deal function', () => {
+
+	it('should deal etc etc', () => {
+
+		expect(false).toBe(true);
+
+		var deal = testUtils.deal(currentDeck);
+		const expectedFourCardDeal = ['4D', '5W', '3C', '2S'];
+		expect(expectedFourCardDeal).toBe(deal.dealtCards);
+		expect(deal.remainingDeck).toBe(currentDeck); //should remove cards
+	});
+});
+
 describe('scenarios', () => {
 
 	const expectedScenarios = 

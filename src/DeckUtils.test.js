@@ -1,21 +1,19 @@
 const DeckUtils = require('./DeckUtils');
 const testUtils = DeckUtils();
 
-
-it('should have at least one test', () => {
-	expect(true).toBe(true);
-});
-
 describe('deal function', () => {
 
-	it('should deal etc etc', () => {
+	it('should deal sequentially with a deal count parameter', () => {
 
-		expect(false).toBe(true);
-
-		var deal = testUtils.deal(currentDeck);
+		const currentDeck = ['4D', '5W', '3C', '2S',
+							 '6D', '5S', '3D', '2W',
+							 '9D', '6W', '8C', '4S'];
+							 
+		var deal = testUtils.deal(currentDeck, 4);
 		const expectedFourCardDeal = ['4D', '5W', '3C', '2S'];
 		expect(expectedFourCardDeal).toBe(deal.dealtCards);
-		expect(deal.remainingDeck).toBe(currentDeck); //should remove cards
+		expect(deal.remainingDeck.length).toBe(currentDeck.length - 4);
+
 	});
 });
 

@@ -15,6 +15,22 @@ const DeckUtils = () => {
       }
     },
 
+    deal: (currentDeck, numberToDeal) => {
+
+
+      // const theseCardsDealt = ['4D', '5W', '3C', '2S'];
+      const theseCardsDealt = currentDeck.splice(0, numberToDeal);
+      // const thisRemainingDeck = currentDeck;
+      const thisRemainingDeck = currentDeck;
+
+      const newDeal = {
+        dealtCards: theseCardsDealt, 
+        remainingDeck: thisRemainingDeck
+      };
+
+      return newDeal;
+    },
+
     parseSuit: (cardValue) => {
 
       if(cardValue.endsWith("D")){

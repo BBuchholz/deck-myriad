@@ -9,10 +9,12 @@ describe('deal function', () => {
 							 '6D', '5S', '3D', '2W',
 							 '9D', '6W', '8C', '4S'];
 							 
+		const currentDeckLength = currentDeck.length;
+							 
 		var deal = testUtils.deal(currentDeck, 4);
 		const expectedFourCardDeal = ['4D', '5W', '3C', '2S'];
-		expect(expectedFourCardDeal).toBe(deal.dealtCards);
-		expect(deal.remainingDeck.length).toBe(currentDeck.length - 4);
+		expect(expectedFourCardDeal).toStrictEqual(deal.dealtCards);
+		expect(deal.remainingDeck.length).toBe(currentDeckLength - 4);
 
 	});
 });

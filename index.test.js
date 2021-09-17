@@ -1,4 +1,4 @@
-const { Card, CardStack, DeckList } = require('./index');
+const { Card, CardStack, DeckList, DeckUtils } = require('./index');
 
 test('should have Card defined in index', () => {
 
@@ -28,4 +28,15 @@ test('should have CardStack defined in index', () => {
 	//console.log(newCardStack);
 
 	expect(newCardStack).toBeDefined();
+});
+
+
+test('should have DeckUtils defined in index', () => {
+
+	const newDeckUtils = DeckUtils();
+	
+
+	//console.log(newDeckUtils);
+
+	expect(newDeckUtils).toBeDefined();
 });

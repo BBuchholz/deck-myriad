@@ -1,6 +1,7 @@
 {
   "name": "deck-myriad",
-  "version": "0.0.1",
+  "version": "0.0.2",
+  "license": "MIT",
   "description": "deck handling for the myriad ecosystem",
   "main": "index.js",
   "scripts": {
